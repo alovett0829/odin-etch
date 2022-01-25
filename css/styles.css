@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    grid-gap: 10px;
+}
+
+.cell-style {
+    background-color: gray;
+    height: 200px;
+    border: 1px solid black;
+}
+
+.change {
+    background-color: black;
+}

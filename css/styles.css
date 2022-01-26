@@ -3,15 +3,23 @@
 }
 
 #grid {
+    height: 700px;
+    width: 700px;
     display: grid;
-    grid-template-columns: repeat(4, 200px);
-    grid-gap: 10px;
+    grid-gap: 1px;
 }
 
 .cell-style {
     background-color: gray;
-    height: 200px;
     border: 1px solid black;
+}
+
+#button-container {
+    margin: 50px;
+}
+
+#clear {
+    padding: 45px;
 }
 
 .change {

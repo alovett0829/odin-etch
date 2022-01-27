@@ -1,10 +1,31 @@
 const container = document.getElementById('grid');
 const clear = document.getElementById('clear');
-let size = 75;
+const buttonSquares = document.getElementById('button-squares');
+const createdCells = document.getElementsByClassName('cell-style');
+const label = document.getElementById('size');
 
-function makeGrid (size) {
-        let sizeSecondPower = Math.pow(size, 2);
-        console.log(sizeSecondPower);
+let squares = 16;
+let sizeSecondPower = 256;
+
+function getValue (squares, sizeSecondPower) {
+
+        squares = document.getElementById('squares').value;
+        sizeSecondPower = Math.pow(squares, 2);
+
+        while (container.firstChild) {
+                container.removeChild(container.firstChild);
+        }
+
+        label.innerText = `${squares} X ${squares}`;
+
+        makeGrid(squares, sizeSecondPower);
+        reset();
+        changeColor();
+
+
+};
+
+function makeGrid (squares, sizeSecondPower) {
 
         for (let i = 0; i < sizeSecondPower; i++) {
                 const cell = document.createElement("div");
@@ -12,31 +33,33 @@ function makeGrid (size) {
                 cell.classList.add("cell-style");
         }
 
-        container.style['grid-template-columns'] = `repeat(${size}, 1fr)`;
-        container.style['grid-template-rows'] = `repeat(${size}, 1fr)`;
+        container.style['grid-template-columns'] = `repeat(${squares}, 1fr)`;
+        container.style['grid-template-rows'] = `repeat(${squares}, 1fr)`;
 }
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
-        let createdCells = document.getElementsByClassName('cell-style');
 
+        changeColor();  
+        reset();
+        clear.addEventListener('click', reset);
+
+});
+
+function changeColor () {
         for (let i = 0; i < createdCells.length; i++) {
                 createdCells[i].addEventListener('mouseover', () => {
                         createdCells[i].classList.add('change');
                 });
         }
-        
-        function reset () {
-                for (let i = 0; i < createdCells.length; i++) {
-                        createdCells[i].classList.remove('change');
-                }
+}
+
+function reset () {
+        for (let i = 0; i < createdCells.length; i++) {
+                createdCells[i].classList.remove('change');
         }
+}
 
-        clear.addEventListener('click', reset);
-});
-
-makeGrid(size);
+makeGrid (squares, sizeSecondPower);
 
 
 

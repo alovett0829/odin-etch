@@ -9,7 +9,7 @@
     grid-gap: 1px;
 }
 
-.cell-style {
+.grid-lines {
     background-color: lightgray;
     border: 1px solid black;
 }
@@ -25,3 +25,8 @@
 .change {
     background-color: black;
 }
+
+input {
+    display: block;
+}
+

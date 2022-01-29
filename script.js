@@ -1,6 +1,5 @@
 const container = document.getElementById('grid');
 const clear = document.getElementById('clear');
-const buttonSquares = document.getElementById('button-squares');
 const createdCells = document.getElementsByClassName('cell-style');
 const label = document.getElementById('size');
 const pickColor = document.getElementById('pick-color');
@@ -99,7 +98,3 @@ gridLines.addEventListener('click', function () {
 });
 
 makeGrid (squares, sizeSecondPower);
-
-
-
-
